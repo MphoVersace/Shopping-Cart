@@ -1,51 +1,50 @@
 [
-    {
-        "id": 1,
-        "name":" LD01 LOUNGE CHAIR",
-        "price": 200,
-        "image": "image/1.png"
-    },
-    {
-        "id": 2,
-        "name":" LD02 LOUNGE CHAIR",
-        "price": 250,
-        "image": "image/2.png"
-    },
-    {
-        "id": 3,
-        "name":" LD03 LOUNGE CHAIR",
-        "price": 290,
-        "image": "image/3.png"
-    },
-    {
-        "id": 4,
-        "name":" LD04 LOUNGE CHAIR",
-        "price": 200,
-        "image": "image/4.png"
-    },
-    {
-        "id": 5,
-        "name":" LD05 LOUNGE CHAIR",
-        "price": 300,
-        "image": "image/5.png"
-    },
-    {
-        "id": 6,
-        "name":" LD06 LOUNGE CHAIR",
-        "price": 200,
-        "image": "image/6.png"
-    },
-    {
-        "id": 7,
-        "name":" LD07 LOUNGE CHAIR",
-        "price": 200,
-        "image": "image/7.png"
-    },
-    {
-        "id": 8,
-        "name":" LD08 LOUNGE CHAIR",
-        "price": 200,
-        "image": "image/8.png"
-    }
-
+  {
+    "id": 1,
+    "name": " Stiletto heels",
+    "price": 1700,
+    "image": "icons/images/heels1.png"
+  },
+  {
+    "id": 2,
+    "name": "Stiletto bling ",
+    "price": 1500,
+    "image": "icons/images/heel2.png"
+  },
+  {
+    "id": 3,
+    "name": " Stiletto slim",
+    "price": 1300,
+    "image": "icons/images/heel3.png"
+  },
+  {
+    "id": 4,
+    "name": " Stiletto gaga",
+    "price": 1250,
+    "image": "icons/images/heel4.png"
+  },
+  {
+    "id": 5,
+    "name": "Bow-tie Stiletto  ",
+    "price": 1700,
+    "image": "icons/images/heel5.png"
+  },
+  {
+    "id": 6,
+    "name": " Slim Sliver Stiletto",
+    "price": 1300,
+    "image": "icons/images/heel6.png"
+  },
+  {
+    "id": 7,
+    "name": " Sliver Church Stiletto",
+    "price": 1250,
+    "image": "icons/images/heel7.png"
+  },
+  {
+    "id": 8,
+    "name": " Bling Sliver Stiletto",
+    "price": 1200,
+    "image": "icons/images/heel8.png"
+  }
 ]
