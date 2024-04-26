@@ -25,25 +25,25 @@
   },
   {
     "id": 5,
-    "name": "Bow-tie Stiletto  ",
+    "name": "Leather Stiletto  ",
     "price": 1700,
     "image": "icons/images/heel5.png"
   },
   {
     "id": 6,
-    "name": " Slim Sliver Stiletto",
+    "name": " Sliver Stiletto Gaga",
     "price": 1300,
     "image": "icons/images/heel6.png"
   },
   {
     "id": 7,
-    "name": " Sliver Church Stiletto",
+    "name": " Sliver Zip Stiletto",
     "price": 1250,
     "image": "icons/images/heel7.png"
   },
   {
     "id": 8,
-    "name": " Bling Sliver Stiletto",
+    "name": " Crystal Sliver Stiletto",
     "price": 1200,
     "image": "icons/images/heel8.png"
   }
