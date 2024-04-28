@@ -1,39 +1,31 @@
+// Selecting necessary HTML elements
 let listProductHTML = document.querySelector(".listProduct");
 let listCartHTML = document.querySelector(".listCart");
 let iconCart = document.querySelector(".icon-cart");
 let iconCartSpan = document.querySelector(".icon-cart span");
 let body = document.querySelector("body");
 let closeCart = document.querySelector(".close");
+
+// Arrays to store products and cart items
 let products = [];
 let cart = [];
 
+// Event listener for toggling the cart visibility
 iconCart.addEventListener("click", () => {
   body.classList.toggle("showCart");
 });
+
+// Event listener for closing the cart
 closeCart.addEventListener("click", () => {
   body.classList.toggle("showCart");
 });
 
-const calculateTotalPrice = () => {
-  let totalPrice = 0;
-  if (cart.length > 0) {
-    cart.forEach((item) => {
-      let positionProduct = products.findIndex(
-        (value) => value.id == item.product_id
-      );
-      let info = products[positionProduct];
-      totalPrice += info.price * item.quantity;
-    });
-  }
-  return totalPrice;
-};
-
+// Function to add product data to HTML
 const addDataToHTML = () => {
-  // remove datas default from HTML
+  // Remove default data from HTML
 
-  // add new datas
+  // Add new product data
   if (products.length > 0) {
-    // if has data
     products.forEach((product) => {
       let newProduct = document.createElement("div");
       newProduct.dataset.id = product.id;
@@ -46,6 +38,8 @@ const addDataToHTML = () => {
     });
   }
 };
+
+// Event listener for adding products to the cart
 listProductHTML.addEventListener("click", (event) => {
   let positionClick = event.target;
   if (positionClick.classList.contains("addCart")) {
@@ -53,6 +47,8 @@ listProductHTML.addEventListener("click", (event) => {
     addToCart(id_product);
   }
 });
+
+// Function to add a product to the cart
 const addToCart = (product_id) => {
   let positionThisProductInCart = cart.findIndex(
     (value) => value.product_id == product_id
@@ -70,15 +66,18 @@ const addToCart = (product_id) => {
       quantity: 1,
     });
   } else {
-    cart[positionThisProductInCart].quantity =
-      cart[positionThisProductInCart].quantity + 1;
+    cart[positionThisProductInCart].quantity += 1;
   }
   addCartToHTML();
   addCartToMemory();
 };
+
+// Function to add cart data to local storage
 const addCartToMemory = () => {
   localStorage.setItem("cart", JSON.stringify(cart));
 };
+
+// Function to update the cart in HTML
 const addCartToHTML = () => {
   listCartHTML.innerHTML = "";
   let totalQuantity = 0;
@@ -119,6 +118,7 @@ const addCartToHTML = () => {
   listCartHTML.appendChild(totalPriceElement);
 };
 
+// Event listener for changing quantity in the cart
 listCartHTML.addEventListener("click", (event) => {
   let positionClick = event.target;
   if (
@@ -133,16 +133,16 @@ listCartHTML.addEventListener("click", (event) => {
     changeQuantityCart(product_id, type);
   }
 });
+
+// Function to change quantity in the cart
 const changeQuantityCart = (product_id, type) => {
   let positionItemInCart = cart.findIndex(
     (value) => value.product_id == product_id
   );
   if (positionItemInCart >= 0) {
-    let info = cart[positionItemInCart];
     switch (type) {
       case "plus":
-        cart[positionItemInCart].quantity =
-          cart[positionItemInCart].quantity + 1;
+        cart[positionItemInCart].quantity += 1;
         break;
 
       default:
@@ -159,19 +159,37 @@ const changeQuantityCart = (product_id, type) => {
   addCartToMemory();
 };
 
+// Function to initialize the application
 const initApp = () => {
-  // get data product
+  // Fetch product data
   fetch("products.json")
     .then((response) => response.json())
     .then((data) => {
       products = data;
       addDataToHTML();
 
-      // get data cart from memory
+      // Get cart data from local storage
       if (localStorage.getItem("cart")) {
         cart = JSON.parse(localStorage.getItem("cart"));
         addCartToHTML();
       }
     });
 };
+
+// Function to calculate total price
+const calculateTotalPrice = () => {
+  let totalPrice = 0;
+  if (cart.length > 0) {
+    cart.forEach((item) => {
+      let positionProduct = products.findIndex(
+        (value) => value.id == item.product_id
+      );
+      let info = products[positionProduct];
+      totalPrice += info.price * item.quantity;
+    });
+  }
+  return totalPrice;
+};
+
+// Initialize the application
 initApp();
