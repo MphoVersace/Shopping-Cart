@@ -14,6 +14,20 @@ closeCart.addEventListener("click", () => {
   body.classList.toggle("showCart");
 });
 
+const calculateTotalPrice = () => {
+  let totalPrice = 0;
+  if (cart.length > 0) {
+    cart.forEach((item) => {
+      let positionProduct = products.findIndex(
+        (value) => value.id == item.product_id
+      );
+      let info = products[positionProduct];
+      totalPrice += info.price * item.quantity;
+    });
+  }
+  return totalPrice;
+};
+
 const addDataToHTML = () => {
   // remove datas default from HTML
 
@@ -70,7 +84,7 @@ const addCartToHTML = () => {
   let totalQuantity = 0;
   if (cart.length > 0) {
     cart.forEach((item) => {
-      totalQuantity = totalQuantity + item.quantity;
+      totalQuantity += item.quantity;
       let newItem = document.createElement("div");
       newItem.classList.add("item");
       newItem.dataset.id = item.product_id;
@@ -97,6 +111,12 @@ const addCartToHTML = () => {
     });
   }
   iconCartSpan.innerText = totalQuantity;
+
+  // Add total price to the cart
+  let totalPriceElement = document.createElement("div");
+  totalPriceElement.classList.add("totalPrice");
+  totalPriceElement.innerHTML = `Total: R${calculateTotalPrice()}`;
+  listCartHTML.appendChild(totalPriceElement);
 };
 
 listCartHTML.addEventListener("click", (event) => {
